@@ -1,0 +1,29 @@
+﻿@model IEnumerable<Faculty.DAL.Entities.ApplicationRole>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Roles</h2>
+<hr/>
+
+<p>
+    <a href="~/Role/Create" class="btn btn-primary">
+        <span class="glyphicon glyphicon-plus"></span> New role
+    </a>
+</p>
+<table class="table table-hover table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+    </tr>
+@foreach (var item in Model) {
+    <tr class="text-justify">
+        <td>
+            @Html.DisplayFor(modelItem => item.Name)
+        </td>
+    </tr>
+}
+
+</table>

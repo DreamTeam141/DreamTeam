@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Faculty.Models.ActionDetailViewModel>
+
+@{
+    ViewBag.Title = "Actions";
+}
+
+<h2 class="text-center">Actions</h2>
+<hr/>
+
+<table class="table table-hover table-striped table-condensed">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ControllerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ActionName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UserName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-justify">
+        <td>
+            @Html.DisplayFor(modelItem => item.ControllerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ActionName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UserName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+    </tr>
+}
+
+</table>

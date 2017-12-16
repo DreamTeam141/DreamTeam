@@ -1,0 +1,74 @@
+﻿@model Faculty.Models.CourseDetailsViewModel
+
+@{
+    ViewBag.Title = "Subscribe";
+}
+
+<h2 class="text-center">Subscribe</h2>
+<h4 class="text-center">Are you sure you want to subscribe this?</h4>
+<hr />
+
+<div class="well">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Title)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Title)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Durations)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Durations)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CourseStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CourseStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Teacher)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="text-right">
+            <div class="btn-group">
+                @Html.ActionLink("Back to Courses", "Index", null, new { @class = "btn btn-primary" })
+                <input type="submit" value="Subscribe" class="btn btn-primary"/>
+            </div>
+        </div>
+    }
+</div>

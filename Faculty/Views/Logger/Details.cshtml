@@ -1,0 +1,56 @@
+﻿@model Faculty.Models.ExceptionDetailViewModel
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2 class="text-center">Details</h2>
+<hr/>
+
+<div class="well">
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExceptionMessage)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExceptionMessage)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ControllerName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ControllerName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ActionName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ActionName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StackTrace)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StackTrace)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
+
+    </dl>
+</div>
+<div class="text-right">
+    @Html.ActionLink("Back to Exceptions", "Exceptions", null, new { @class = "btn btn-primary" })
+</div>

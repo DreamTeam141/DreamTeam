@@ -1,0 +1,12 @@
+﻿@using Faculty.Helpers
+@model Faculty.Models.ProfileCourseViewModel
+
+@{
+ViewBag.Title = "Profile";
+}
+
+<h2 class="text-center">Profile</h2>
+<hr />
+
+@Html.Partial("_MainInformationProfile", Model.UserViewModel)
+@Html.RenderStudentProfile(Model)

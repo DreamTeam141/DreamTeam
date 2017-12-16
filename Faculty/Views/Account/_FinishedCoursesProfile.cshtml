@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Faculty.Models.CourseViewModel>
+
+<h4 class="text-center">Finished courses</h4>
+<table class="table table-hover table-striped">
+    <tr>
+        <th class="col-md-2 text-center">
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th class="col-md-7 text-center">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th class="col-md-1 text-center">
+            @Html.DisplayNameFor(model => model.Durations)
+        </th>
+        <th class="col-md-1 text-center">
+            @Html.DisplayNameFor(model => model.Mark)
+        </th>
+        <th class="col-md-1 text-center"></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr class="text-justify">
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durations)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Mark)
+        </td>
+        <td class="text-right">
+            @Html.ActionLink("Details", "Details", "Course", new { id=item.Id }, new {@class = "btn btn-primary"})
+        </td>
+    </tr>
+}
+
+</table>

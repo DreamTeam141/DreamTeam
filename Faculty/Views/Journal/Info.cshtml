@@ -1,0 +1,48 @@
+﻿@model Faculty.Models.JournalViewModel
+
+@{
+    ViewBag.Title = "Info";
+}
+
+<h2 class="text-center">Info</h2>
+<hr/>
+
+@Html.ActionLink("Edit", "Edit", new { id = Model.CourseId }, new {@class = "btn btn-primary"}) <br /><br/>
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.CourseStudentViewModels[0].Student.ApplicationUser.SecondName)
+        </th>
+        <th class="col-md-4">
+            @Html.DisplayNameFor(model => model.CourseStudentViewModels[0].Student.ApplicationUser.FirstName)
+        </th>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.CourseStudentViewModels[0].Student.ApplicationUser.Patronymic)
+        </th>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.CourseStudentViewModels[0].Mark)
+        </th>
+    </tr>
+
+    @foreach (var item in Model.CourseStudentViewModels) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.ApplicationUser.SecondName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.ApplicationUser.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Student.ApplicationUser.Patronymic)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Mark)
+            </td>
+        </tr>
+    }
+
+</table>
+<div class="text-right">
+    @Html.ActionLink("Back to Courses", "Index", null, new { @class = "btn btn-primary" })
+</div>

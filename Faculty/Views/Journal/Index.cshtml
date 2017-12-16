@@ -1,0 +1,53 @@
+﻿@using Faculty.Helpers
+@model Faculty.Models.JournalIndexViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="text-center">Courses</h2>
+<hr/>
+
+@*@if (Model.NotUpdatedCourses.Count > 0)
+{
+    @Html.Partial("_NotUpdatedCourses", Model.NotUpdatedCourses)
+
+    <br />
+}*@
+
+@Html.RenderJournalIndex(Model)
+
+<h4 class="text-center">All courses</h4>
+
+<table class="table table-hover table-striped">
+    <tr>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.IsUpdatedCoursesViewModels[0].Title)
+        </th>
+        <th class="col-md-8">
+            @Html.DisplayNameFor(model => model.IsUpdatedCoursesViewModels[0].Description)
+        </th>
+        <th class="col-md-1">
+            @Html.DisplayNameFor(model => model.IsUpdatedCoursesViewModels[0].Durations)
+        </th>
+        <th class="col-md-1"></th>
+    </tr>
+
+@foreach (var item in Model.IsUpdatedCoursesViewModels) {
+    <tr class="text-justify">
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Description)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Durations)
+        </td>
+        <td class="text-right">
+            @Html.ActionLink("Open", "Info", new { id=item.Id }, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+}
+
+</table>

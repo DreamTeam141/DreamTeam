@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Faculty.Models.UserViewModel>
+
+<h4 class="text-center">Blocked students</h4>
+<table class="table table-hover table-striped">
+    <tr>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.SecondName)
+        </th>
+        <th class="col-md-4">
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.Patronymic)
+        </th>
+        <th class="col-md-2"></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="text-justify">
+            <td>
+                @Html.DisplayFor(modelItem => item.SecondName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Patronymic)
+            </td>
+            <td class="text-right">
+                <div class="btn-group">
+                    @Html.ActionLink("Profile", "Profile", "Account", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    @Html.ActionLink("Unblock", "Unblock", new { id = item.Id }, new { @class = "btn btn-primary" })
+                </div>
+            </td>
+        </tr>
+    }
+
+</table>

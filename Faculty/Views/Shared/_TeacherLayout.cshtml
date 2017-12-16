@@ -1,0 +1,12 @@
+﻿@using System.Security.Claims
+@using Microsoft.AspNet.Identity
+
+<ul class="nav navbar-nav">
+    <li><a href="/Journal/Index">Journal</a></li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+    <p class="navbar-text">Hello, @(((ClaimsIdentity)User.Identity).FindFirstValue("FullName"))!</p>
+    <li><a href="~/Account/Profile"><span class="glyphicon glyphicon-user"></span> Profile</a></li>
+    <li><a href="~/Account/Logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+</ul>
+
