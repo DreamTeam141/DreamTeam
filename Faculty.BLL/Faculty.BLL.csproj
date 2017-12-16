@@ -143,6 +143,7 @@
     <Compile Include="Services\TeacherService.cs" />
     <Compile Include="Services\UserService.cs" />
     <Compile Include="Util\NewClass.cs" />
+    <Compile Include="Util\NewNewClass.cs" />
     <Compile Include="Util\NinjectDependencyResolver.cs" />
     <Compile Include="Util\OrderDistributor.cs" />
     <Compile Include="Util\RoleDistributer.cs" />
