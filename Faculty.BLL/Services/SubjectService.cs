@@ -4,10 +4,8 @@ using System.Web.Mvc;
 using AutoMapper;
 using Faculty.BLL.DTO;
 using Faculty.BLL.Interfaces;
-using Faculty.BLL.Mapper;
 using Faculty.DAL.Entities;
 using Faculty.DAL.Interfaces;
-using Microsoft.AspNet.Identity;
 
 namespace Faculty.BLL.Services
 {

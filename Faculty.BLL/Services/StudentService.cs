@@ -5,7 +5,6 @@ using Faculty.BLL.DTO;
 using Faculty.BLL.Interfaces;
 using Faculty.BLL.Util;
 using Faculty.DAL.Entities;
-using Faculty.DAL.Identity;
 using Faculty.DAL.Interfaces;
 using Microsoft.AspNet.Identity;
 

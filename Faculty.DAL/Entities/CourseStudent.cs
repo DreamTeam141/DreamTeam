@@ -7,11 +7,16 @@ namespace Faculty.DAL.Entities
     {
         [Key, Column(Order = 0)]
         public int CourseId { get; set; }
+
         [Key, Column(Order = 1)]
         public string StudentId { get; set; }
 
+       [Key, Column(Order = 3)]
+        public int Set { get; set; }
+
         public virtual Course Course { get; set; }
         public virtual Student Student { get; set; }
+
         public int Mark { get; set; }
     }
 }

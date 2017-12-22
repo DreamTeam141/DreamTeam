@@ -16,5 +16,7 @@ namespace Faculty.Models
         [Required(ErrorMessage = "Mark is required")]
         [Range(1, 5, ErrorMessage = "From 1 to 5")]
         public int Mark { get; set; }
+
+        public int Set { get; set; }
     }
 }

@@ -24,6 +24,6 @@ namespace Faculty.BLL.Interfaces
         IEnumerable<CourseDTO> GetTeacherCourses(string teacherId);
         IEnumerable<CourseDTO> GetTeacherIsUpdatedCourses(string teacherId);
         IEnumerable<CourseDTO> GetTeacherNotUpdatedCourses(string teacherId);
-
+        void Resrart(int id);
     }
 }

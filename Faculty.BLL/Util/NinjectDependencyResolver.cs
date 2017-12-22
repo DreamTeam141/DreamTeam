@@ -1,12 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web.Mvc;
-using AutoMapper;
 using Faculty.BLL.Interfaces;
-using Faculty.BLL.Mapper;
 using Faculty.BLL.Services;
 using Faculty.DAL;
-using Faculty;
 using Faculty.DAL.Interfaces;
 using Faculty.Logger;
 using Faculty.Logger.Interfaces;

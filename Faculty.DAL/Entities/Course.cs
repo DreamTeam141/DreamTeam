@@ -14,6 +14,8 @@ namespace Faculty.DAL.Entities
         public bool IsUpdated { get; set; }
         public bool IsDeleted { get; set; }
 
+        public int CurrentSet { get; set; }
+
         public byte[] Photo { get; set; }
 
         public virtual Teacher Teacher { get; set; }

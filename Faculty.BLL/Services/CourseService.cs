@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using AutoMapper;
@@ -8,7 +7,6 @@ using Faculty.BLL.Interfaces;
 using Faculty.BLL.Util;
 using Faculty.DAL.Entities;
 using Faculty.DAL.Interfaces;
-using Microsoft.AspNet.Identity;
 
 namespace Faculty.BLL.Services
 {
@@ -30,6 +28,7 @@ namespace Faculty.BLL.Services
             var course = _mapper.Map<Course>(courseDto);
             course.Subject = subject;
             course.Teacher = teacher;
+            course.CurrentSet = 1;
             _database.CourseRepository.Create(course);
             _database.Save();
         }
@@ -170,7 +169,8 @@ namespace Faculty.BLL.Services
         public void Subscribe(string userId, int courseId)
         {
             var student = _database.StudentRepository.GetByStringId(userId);
-            student.CourseStudents.Add(new CourseStudent() { StudentId = userId, CourseId = courseId});
+            var course = _database.CourseRepository.Get(courseId);
+            student.CourseStudents.Add(new CourseStudent() { StudentId = userId, CourseId = courseId, Set = course.CurrentSet });
             _database.StudentRepository.Update(student);
             _database.Save();
         }
@@ -182,7 +182,7 @@ namespace Faculty.BLL.Services
             {
                 foreach (var course in coursesDto)
                 {
-                    if (courseStudent.CourseId == course.Id && courseStudent.StudentId == userId)
+                    if (courseStudent.CourseId == course.Id && courseStudent.StudentId == userId && courseStudent.Set == course.CurrentSet)
                     {
                         course.IsSubscribed = true;
                     }
@@ -193,14 +193,14 @@ namespace Faculty.BLL.Services
 
         public IEnumerable<CourseDTO> GetFinishedCourses(string userId)
         {
-            var courseStudents = _database.CourseStudentRepository.Find(x => x.StudentId == userId).ToList();
+            var courseStudents = _database.CourseStudentRepository.Find(x => x.StudentId == userId && x.Mark != 0).ToList();
             List<int> coursesId = new List<int>();
             foreach (var courseStudent in courseStudents)
             {
                 coursesId.Add(courseStudent.CourseId);
             }
             var courses = _database.CourseRepository
-                .Find(x => x.IsDeleted == false && x.IsStarted == true && x.IsFinished == true).ToList();
+                .Find(x => x.IsDeleted == false).ToList();
             List<Course> coursesResult = new List<Course>();
             foreach (var course in courses)
             {
@@ -264,7 +264,7 @@ namespace Faculty.BLL.Services
 
         public IEnumerable<CourseDTO> GetNotStartedCourses(string userId)
         {
-            var courseStudents = _database.CourseStudentRepository.Find(x => x.StudentId == userId).ToList();
+            var courseStudents = _database.CourseStudentRepository.Find(x => x.StudentId == userId && x.Mark == 0).ToList();
             List<int> coursesId = new List<int>();
             foreach (var courseStudent in courseStudents)
             {
@@ -343,6 +343,16 @@ namespace Faculty.BLL.Services
             });
 
             return courseStatus;
+        }
+
+        public void Resrart(int id)
+        {
+            var course = _database.CourseRepository.Get(id);
+            course.IsStarted = false;
+            course.IsFinished = false;
+            course.CurrentSet++;
+            _database.CourseRepository.Update(course);
+            _database.Save();
         }
     }
 }

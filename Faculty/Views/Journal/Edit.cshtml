@@ -35,6 +35,8 @@
                 @Html.HiddenFor(model => model.CourseStudentViewModels[i].Student.ApplicationUser.FirstName)
                 @Html.HiddenFor(model => model.CourseStudentViewModels[i].Student.ApplicationUser.SecondName)
                 @Html.HiddenFor(model => model.CourseStudentViewModels[i].Student.ApplicationUser.Patronymic)
+                @Html.HiddenFor(model => model.StudentSet)
+                
                 <td>
                     @Html.DisplayFor(model => model.CourseStudentViewModels[i].Student.ApplicationUser.SecondName, new { htmlAttributes = new { @class = "form-control" } })
                 </td>
@@ -47,6 +49,7 @@
                 <td>
                     @Html.EditorFor(model => model.CourseStudentViewModels[i].Mark, new { htmlAttributes = new { @class = "form-control" } })
                     @Html.ValidationMessageFor(model => model.CourseStudentViewModels[i].Mark, "", new { @class = "text-danger" })
+                    @Html.HiddenFor(model=> model.CourseStudentViewModels[i].Set, new { htmlAttributes = new { Value = @Model.CheckedSet } })
                 </td>
                 <th class="text-right">
                         @Html.ActionLink("Delete", "Delete", "Journal", new {id = Model.CourseStudentViewModels[i].StudentId, courseid = Model.CourseStudentViewModels[i].CourseId } , new{ @class = "btn btn-primary"})

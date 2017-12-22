@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Web.Mvc;
-using System.Web.UI.WebControls;
 
 namespace Faculty.Models
 {
@@ -45,6 +43,9 @@ namespace Faculty.Models
 
         [Required(ErrorMessage = "Mark is required")]
         public int Mark { get; set; }
+
+        public bool IsStarted { get; set; }
+        public bool IsFinished { get; set; }
 
         public IEnumerable<CourseStudentViewModel> CourseStudents { get; set; }
 

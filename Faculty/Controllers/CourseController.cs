@@ -1,10 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using System.Web.Security;
 using AutoMapper;
 using Faculty.BLL.DTO;
 using Faculty.BLL.Interfaces;
@@ -209,6 +207,13 @@ namespace Faculty.Controllers
             {
                 return new FileContentResult(courseDto.Photo, "image/jpeg");
             }
+        }
+
+        [Authorize(Roles = "admin")]
+        public ActionResult Restart(int id)
+        {
+            _courseService.Resrart(id);
+            return RedirectToAction("Index");
         }
     }
 }

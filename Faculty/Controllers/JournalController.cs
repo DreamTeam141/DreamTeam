@@ -1,8 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Net;
-using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
 using AutoMapper;
@@ -50,29 +48,45 @@ namespace Faculty.Controllers
         }
 
         [Authorize(Roles = "teacher")]
-        public ActionResult Info(int id)
+        public ActionResult Info(int id, int? set)
         {
             var courseDto = _courseService.GetCourseDtoById(id);
+
+            if (set == null)
+            {
+                set = courseDto.CurrentSet;
+            }
+
             if (courseDto.Teacher.Id != User.Identity.GetUserId())
             {
                 return new HttpStatusCodeResult(HttpStatusCode.Forbidden);
             }
-            var courseStudents = courseDto.CourseStudents;
+
+            var courseStudents = courseDto.CourseStudents.Where(x => x.Set == set);
             JournalViewModel journalViewModel = new JournalViewModel()
             {
                 CourseId = courseDto.Id,
-                CourseStudentViewModels = _mapper.Map<List<CourseStudentViewModel>>(courseStudents)
+                CourseStudentViewModels = _mapper.Map<List<CourseStudentViewModel>>(courseStudents),
+                StudentSet = courseDto.CurrentSet,
+                CheckedSet = set.Value
             };
+
             journalViewModel.CourseStudentViewModels = journalViewModel.CourseStudentViewModels
                 .OrderBy(x => x.Student.ApplicationUser.SecondName).ToList();
             return View(journalViewModel);
         }
 
         [Authorize(Roles = "teacher")]
-        public ActionResult Edit(int id)
+        public ActionResult Edit(int id, int? set)
         {
             var courseDto = _courseService.GetCourseDtoById(id);
-            var courseStudents = courseDto.CourseStudents;
+
+            if (set == null)
+            {
+                set = courseDto.CurrentSet;
+            }
+
+            var courseStudents = courseDto.CourseStudents.Where(x => x.Set == set);
             var courseStudentsViewModel = _mapper.Map<List<CourseStudentViewModel>>(courseStudents);
             JournalViewModel journalViewModel = new JournalViewModel()
             {

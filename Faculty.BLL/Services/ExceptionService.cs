@@ -2,9 +2,6 @@
 using AutoMapper;
 using Faculty.BLL.DTO;
 using Faculty.BLL.Interfaces;
-using Faculty.DAL.Entities;
-using Faculty.DAL.Interfaces;
-using Faculty.Logger.Entities;
 using Faculty.Logger.Interfaces;
 
 namespace Faculty.BLL.Services

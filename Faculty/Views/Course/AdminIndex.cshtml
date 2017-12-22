@@ -44,6 +44,11 @@
             </td>
             <td class="text-right">
                 <div class="btn-group">
+                    @if (item.IsFinished == true)
+                    {
+                        @Html.ActionLink("Restart   ", "Restart", new { id = item.Id }, new { @class = "btn btn-primary" })
+                    }
+
                     @Html.ActionLink("Edit", "Edit", new { id = item.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Details", "Details", new { id = item.Id }, new { @class = "btn btn-primary" })
                     @Html.ActionLink("Delete", "Delete", new { id = item.Id }, new { @class = "btn btn-primary" })

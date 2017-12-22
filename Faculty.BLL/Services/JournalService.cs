@@ -1,6 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Linq;
-using AutoMapper;
+﻿using AutoMapper;
 using Faculty.BLL.DTO;
 using Faculty.BLL.Interfaces;
 using Faculty.DAL.Entities;

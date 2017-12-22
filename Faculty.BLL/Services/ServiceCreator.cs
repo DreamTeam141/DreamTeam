@@ -1,5 +1,4 @@
-﻿using AutoMapper;
-using Faculty.BLL.Interfaces;
+﻿using Faculty.BLL.Interfaces;
 using Faculty.DAL;
 
 namespace Faculty.BLL.Services

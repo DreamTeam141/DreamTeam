@@ -30,8 +30,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AutoMapper, Version=6.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
-      <HintPath>..\packages\AutoMapper.6.1.1\lib\net45\AutoMapper.dll</HintPath>
+    <Reference Include="AutoMapper, Version=6.2.2.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.6.2.2\lib\net45\AutoMapper.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -72,6 +72,7 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -144,6 +145,14 @@
     <Compile Include="Migrations\201709122002203_AddPhotoToCourse.Designer.cs">
       <DependentUpon>201709122002203_AddPhotoToCourse.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201712181545090_AddedSetToCourseStudentandCurrentSetToCourse.cs" />
+    <Compile Include="Migrations\201712181545090_AddedSetToCourseStudentandCurrentSetToCourse.Designer.cs">
+      <DependentUpon>201712181545090_AddedSetToCourseStudentandCurrentSetToCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201712190754383_AddedSetAsKeyToCoursestudent.cs" />
+    <Compile Include="Migrations\201712190754383_AddedSetAsKeyToCoursestudent.Designer.cs">
+      <DependentUpon>201712190754383_AddedSetAsKeyToCoursestudent.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\CourseRepository.cs" />
@@ -196,6 +205,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201709122002203_AddPhotoToCourse.resx">
       <DependentUpon>201709122002203_AddPhotoToCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712181545090_AddedSetToCourseStudentandCurrentSetToCourse.resx">
+      <DependentUpon>201712181545090_AddedSetToCourseStudentandCurrentSetToCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201712190754383_AddedSetAsKeyToCoursestudent.resx">
+      <DependentUpon>201712190754383_AddedSetAsKeyToCoursestudent.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

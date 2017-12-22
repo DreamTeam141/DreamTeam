@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Web.Mvc;
 
 namespace Faculty.BLL.DTO
 {
@@ -19,6 +18,8 @@ namespace Faculty.BLL.DTO
 
         public int Mark { get; set; }
         public byte[] Photo { get; set; }
+
+        public int CurrentSet { get; set; }
 
         public int CourseStatus { get; set; }
 

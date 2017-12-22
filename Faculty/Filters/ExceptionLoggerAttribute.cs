@@ -1,8 +1,5 @@
 ﻿using System;
 using System.Web.Mvc;
-using Faculty.BLL.DTO;
-using Faculty.BLL.Interfaces;
-using Faculty.BLL.Services;
 using Faculty.Logger.EF;
 using Faculty.Logger.Entities;
 

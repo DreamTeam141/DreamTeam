@@ -1,14 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using AutoMapper;
 using Faculty.BLL.DTO;
-using Faculty.BLL.Infrastructure;
 using Faculty.BLL.Interfaces;
 using Faculty.BLL.Util;
 using Faculty.DAL.Identity;
@@ -16,7 +14,6 @@ using Faculty.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using Microsoft.VisualBasic.ApplicationServices;
 
 namespace Faculty.Controllers
 {

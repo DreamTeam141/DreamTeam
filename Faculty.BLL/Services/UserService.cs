@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -7,7 +6,6 @@ using AutoMapper;
 using Faculty.BLL.DTO;
 using Faculty.BLL.Infrastructure;
 using Faculty.BLL.Interfaces;
-using Faculty.BLL.Mapper;
 using Faculty.BLL.Util;
 using Faculty.DAL.Entities;
 using Faculty.DAL.Interfaces;

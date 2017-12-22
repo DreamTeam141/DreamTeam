@@ -1,5 +1,4 @@
-﻿using System.ComponentModel;
-using AutoMapper;
+﻿using AutoMapper;
 using Faculty.BLL.DTO;
 using Faculty.DAL.Entities;
 using Faculty.Logger.Entities;
